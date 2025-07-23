@@ -6,6 +6,9 @@
     "course-frontend": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:service": {
+          "type": "service"
+        },
         "@schematics/angular:component": {
           "style": "scss"
         }
@@ -61,7 +64,8 @@
               "buildTarget": "course-frontend:build:production"
             },
             "development": {
-              "buildTarget": "course-frontend:build:development"
+              "buildTarget": "course-frontend:build:development",
+              "proxyConfig": "./proxy.conf.js"
             }
           },
           "defaultConfiguration": "development"

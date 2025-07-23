@@ -1,0 +1,56 @@
+<div class="tasks-container">
+  <h2>Lista de tareas</h2>
+
+  
+  <form class="task-form" [formGroup]="createForm">
+    <input name="title" type="text" formControlName="title" placeholder="Título" required />
+    <input name="description" type="text" formControlName="description" placeholder="Descripción" required />
+    <button (click)="addTask()" class="btn btn-primary">Crear tarea</button>
+  </form>
+
+  <ul class="tasks-list">
+    @for (task of tasksSignal(); track task.id) {
+      <li [class.completed]="task.completed">
+        @if(selectedTask() === task.id) {
+          <div [formGroup]="editForm" class="task-edit-form">
+            <div class="task-header">
+              <input name="title" type="text" formControlName="title" placeholder="Título" required class="input-title" />
+              <span class="task-id">#{{ task.id }}</span>
+            </div>
+            <div class="task-desc">
+              <input name="description" type="text" formControlName="description" placeholder="Descripción" required class="input-desc" />
+            </div>
+            <div class="task-status">
+              <label class="checkbox-label">
+                <input name="completed" type="checkbox" formControlName="completed" />
+                <span class="checkmark"></span>
+                <span>{{ editForm.value.completed ? 'Completada' : 'Pendiente' }}</span>
+              </label>
+            </div>
+            <div class="task-actions">
+              <button class="btn btn-cancel" type="button" (click)="cancelEdit()">Cancelar</button>
+              <button class="btn btn-save" type="button" (click)="saveEdit(task)">Guardar</button>
+            </div>
+          </div>
+        }@else{
+          <div>
+            <div class="task-header">
+              <span class="task-title">{{ task.title }}</span>
+              <span class="task-id">#{{ task.id }}</span>
+            </div>
+            <div class="task-desc">{{ task.description }}</div>
+            <div class="task-status">
+              <span [class.done]="task.completed">
+                {{ task.completed ? 'Completada' : 'Pendiente' }}
+              </span>
+            </div>
+            <div class="task-actions">
+              <button class="btn btn-edit" (click)="editTask(task)">Editar</button>
+              <button class="btn btn-delete" (click)="deleteTask(task.id)">Borrar</button>
+            </div>
+          </div>
+        }
+      </li>
+    }
+  </ul>
+</div>
