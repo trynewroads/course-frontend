@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { derivedAsync } from 'ngxtension/derived-async';
-import { Task } from '../../models/task';
+import { Task } from '../../models/task.model';
 import { TasksService } from '../../services/tasks.service';
 
 @Component({
