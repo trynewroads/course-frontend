@@ -65,7 +65,9 @@
             },
             "development": {
               "buildTarget": "course-frontend:build:development",
-              "proxyConfig": "./proxy.conf.js"
+              "proxyConfig": "./proxy.conf.js",
+              "host": "0.0.0.0"
+              
             }
           },
           "defaultConfiguration": "development"

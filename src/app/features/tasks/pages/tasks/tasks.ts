@@ -16,6 +16,7 @@ export class Tasks {
   private updateTasksSignal = signal<number>(0)
 
   selectedTask = signal<number | undefined>(undefined);
+  removingTaskId?: number;
 
   tasksSignal = derivedAsync(() => {
       this.updateTasksSignal();
@@ -44,6 +45,7 @@ export class Tasks {
   deleteTask(id: number) {
     this.#tasksService.deleteTask(id)
       .subscribe(() => {
+        this.removingTaskId = undefined;
         this.updateTasks();
       });    
   }

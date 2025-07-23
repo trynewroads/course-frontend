@@ -10,7 +10,7 @@
 
   <ul class="tasks-list">
     @for (task of tasksSignal(); track task.id) {
-      <li [class.completed]="task.completed">
+      <li [class.completed]="task.completed" >
         @if(selectedTask() === task.id) {
           <div [formGroup]="editForm" class="task-edit-form">
             <div class="task-header">
