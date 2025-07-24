@@ -7,6 +7,11 @@
   </div>
 
   @for (task of tasksSignal(); track $index) {
-    <app-task-card [task]="task"></app-task-card>
+    <app-task-card
+      [task]="task"
+      (changeStatus)="onChangeStatus(task)"
+      (edit)="onEdit(task)"
+      (delete)="onDelete(task)"
+    ></app-task-card>
   }
 </section>

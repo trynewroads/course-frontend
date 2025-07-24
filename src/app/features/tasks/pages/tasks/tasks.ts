@@ -1,10 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { TaskCard } from '@tnr/features/tasks/components/task-card/task-card';
 import { Task } from '@tnr/features/tasks/models/task.model';
@@ -19,69 +14,23 @@ import { derivedAsync } from 'ngxtension/derived-async';
 })
 export class Tasks {
   readonly #tasksService = inject(TasksService);
-  readonly #fb = inject(FormBuilder);
-  private updateTasksSignal = signal<number>(0);
 
-  selectedTask = signal<number | undefined>(undefined);
-  removingTaskId?: number;
+  private updateTasksSignal = signal<number>(0);
 
   tasksSignal = derivedAsync(() => {
     this.updateTasksSignal();
     return this.#tasksService.getTasks();
   });
 
-  createForm: FormGroup = this.#fb.group({
-    title: ['', Validators.required],
-    description: ['', Validators.required],
-  });
-
-  editForm: FormGroup = this.#fb.group({
-    title: ['', Validators.required],
-    description: ['', Validators.required],
-    completed: [false, Validators.required],
-  });
-
-  addTask() {
-    this.#tasksService
-      .createTask(this.createForm.getRawValue())
-      .subscribe(() => {
-        this.createForm.reset();
-        this.updateTasks();
-      });
+  onChangeStatus({ id, status }: Task) {
+    this.#tasksService.updateTaskStatus(id, { status: !status }).subscribe();
   }
 
-  deleteTask(id: number) {
-    this.#tasksService.deleteTask(id).subscribe(() => {
-      this.removingTaskId = undefined;
-      this.updateTasks();
+  onEdit(task: Task) {}
+
+  onDelete(task: Task) {
+    this.#tasksService.deleteTask(task.id).subscribe(() => {
+      this.updateTasksSignal.update((value) => value + 1);
     });
-  }
-
-  editTask(task: Task) {
-    this.selectedTask.set(task.id);
-    this.editForm.patchValue({
-      title: task.title,
-      description: task.description,
-      status: task.status,
-    });
-  }
-
-  saveEdit(task: Task) {
-    this.#tasksService
-      .updateTask(task.id, this.editForm.getRawValue())
-      .subscribe(() => {
-        this.selectedTask.set(undefined);
-        this.updateTasks();
-        this.editForm.reset();
-      });
-  }
-
-  cancelEdit() {
-    this.selectedTask.set(undefined);
-    this.editForm.reset();
-  }
-
-  private updateTasks() {
-    this.updateTasksSignal.update((value) => value + 1);
   }
 }
