@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { CreateTaskDto } from '../dto/create-task.dto';
+import { UpdateTaskStatusDto } from '../dto/update-task-status.dto';
 import { UpdateTaskDto } from '../dto/update-task.dto';
 import { Task } from '../models/task.model';
 
@@ -28,6 +29,10 @@ export class TasksService {
 
   updateTask(id: number, updateTask: UpdateTaskDto) {
     return this.#http.put<Task>(`${this.#slug}/${id}`, updateTask);
+  }
+
+  updateTaskStatus(id: number, updateTaskStatus: UpdateTaskStatusDto) {
+    return this.#http.patch<Task>(`${this.#slug}/${id}/status`, updateTaskStatus);
   }
 
   deleteTask(id: number) {

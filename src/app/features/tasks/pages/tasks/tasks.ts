@@ -55,7 +55,7 @@ export class Tasks {
     this.editForm.patchValue({
       title: task.title,
       description: task.description,
-      completed: task.completed
+      status: task.status
     });
   }
 

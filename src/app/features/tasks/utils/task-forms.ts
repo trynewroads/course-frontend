@@ -1,6 +1,7 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { CreateTaskForm } from '../dto/create-task.dto'
 import { UpdateTaskDto } from '../dto/update-task.dto'
+import { Task } from '../models/task.model'
 
 export const createTaskForm = () => {
     return new FormGroup<CreateTaskForm>({
@@ -15,3 +16,11 @@ export const updateTaskForm = (task: UpdateTaskDto) => {
         description: new FormControl(task.description, {validators: [Validators.required], nonNullable: true}),
     })
 }
+
+
+export const updateTaskStatusForm = (task: Task) => {
+    return new FormGroup<CreateTaskForm>({
+        status: new FormControl(task.status, {validators: [Validators.required], nonNullable: true}),
+    })
+}
+
