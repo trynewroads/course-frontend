@@ -1,0 +1,12 @@
+<section class="tasks-list">
+  <div class="tasks-list-header">
+    <h1>Lista de Tareas</h1>
+    <div>
+      <button matButton="filled">Crear Tarea</button>
+    </div>
+  </div>
+
+  @for (task of tasksSignal(); track $index) {
+    <app-task-card [task]="task"></app-task-card>
+  }
+</section>

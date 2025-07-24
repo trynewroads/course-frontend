@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { CreateTaskDto } from '../dto/create-task.dto';
-import { UpdateTaskStatusDto } from '../dto/update-task-status.dto';
-import { UpdateTaskDto } from '../dto/update-task.dto';
-import { Task } from '../models/task.model';
+import { CreateTaskDto } from '@tnr/features/tasks/dto/create-task.dto';
+import { UpdateTaskStatusDto } from '@tnr/features/tasks/dto/update-task-status.dto';
+import { UpdateTaskDto } from '@tnr/features/tasks/dto/update-task.dto';
+import { Task } from '@tnr/features/tasks/models/task.model';
 
 
 

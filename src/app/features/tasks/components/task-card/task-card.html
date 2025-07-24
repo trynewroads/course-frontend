@@ -1,0 +1,19 @@
+<section class="task-card">
+  <h1>id: #{{ task().id | number: "3.0-0" }}</h1>
+  <div class="task-card-title">{{ task().title }}</div>
+  <p class="task-card-description">{{ task().description }}</p>
+  <hr class="divider" />
+  <div class="task-card-footer">
+    <div>
+      <mat-slide-toggle>{{ task().status }}</mat-slide-toggle>
+    </div>
+    <div class="task-card-buttons">
+      <button matMiniFab>
+        <mat-icon fontIcon="edit"></mat-icon>
+      </button>
+      <button matMiniFab>
+        <mat-icon fontIcon="delete"></mat-icon>
+      </button>
+    </div>
+  </div>
+</section>

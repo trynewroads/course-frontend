@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { LoginDto } from './../dto/login.dto';
+import { LoginDto } from '@tnr/features/auth/dto/login.dto';
+
 
 @Injectable({
   providedIn: 'root'

@@ -1,0 +1,41 @@
+@use "@angular/material" as mat;
+
+:root {
+  @include mat.slide-toggle-overrides(
+    (
+      unselected-handle-color: #b3a4d9,
+      unselected-hover-handle-color: #b3a4d9,
+      unselected-pressed-handle-color: #b3a4d9,
+      unselected-icon-color: #b3a4d9,
+      unselected-focus-handle-color: #b3a4d9,
+
+      unselected-track-color: #d6cfe6,
+      unselected-hover-track-color: #d6cfe6,
+      unselected-pressed-track-color: #d6cfe6,
+      unselected-focus-track-color: #d6cfe6,
+
+      selected-track-color: #2e2052,
+      selected-hover-track-color: #2e2052,
+      selected-pressed-track-color: #2e2052,
+      selected-focus-track-color: #2e2052,
+
+      selected-handle-color: #2d6bfa,
+      selected-hover-handle-color: #2d6bfa,
+      selected-pressed-handle-color: #2d6bfa,
+      selected-focus-handle-color: #2d6bfa,
+
+      selected-icon-color: #fff,
+
+      selected-focus-state-layer-opacity: 0,
+      selected-hover-state-layer-opacity: 0,
+      selected-pressed-state-layer-opacity: 0,
+
+      unselected-focus-state-layer-opacity: 0,
+      unselected-hover-state-layer-opacity: 0,
+      unselected-pressed-state-layer-opacity: 0,
+
+      track-height: 25px,
+      handle-height: 25px,
+    )
+  );
+}

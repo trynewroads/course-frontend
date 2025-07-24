@@ -1,5 +1,5 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { LoginForm } from '../dto/login.dto'
+import { LoginForm } from '@tnr/features/auth/dto/login.dto'
 
 export const createLoginForm = () => {
     return new FormGroup<LoginForm>({

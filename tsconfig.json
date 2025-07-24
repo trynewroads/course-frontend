@@ -11,7 +11,25 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "paths": {
+      "@tnr/features/auth/*": [
+        "./src/app/features/auth/*"
+      ],
+      "@tnr/features/tasks/*": [
+        "./src/app/features/tasks/*"
+      ],
+      "@tnr/features/*": [
+        "./src/app/features/*"
+      ],
+      "@tnr/core/*": [
+        "./src/app/core/*"
+      ],
+      "@tnr/*": [
+        "./src/app/*"
+      ],
+      
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

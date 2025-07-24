@@ -1,7 +1,8 @@
 import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import { createLoginForm } from '../../utils/auth-forms';
+import { AuthService } from '@tnr/features/auth/services/auth.service';
+import { createLoginForm } from '@tnr/features/auth/utils/auth-forms';
+
 
 @Component({
   selector: 'app-login',

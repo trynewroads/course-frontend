@@ -1,4 +1,4 @@
-import { FormType } from '../../../core/models/forms';
+import { FormType } from '@tnr/core/models/forms';
 
 export interface UpdateTaskStatusDto {
   status: boolean;
