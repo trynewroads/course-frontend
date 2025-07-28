@@ -5,15 +5,12 @@ import { UpdateTaskStatusDto } from '@tnr/features/tasks/dto/update-task-status.
 import { UpdateTaskDto } from '@tnr/features/tasks/dto/update-task.dto';
 import { Task } from '@tnr/features/tasks/models/task.model';
 
-
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TasksService {
   readonly #http = inject(HttpClient);
   readonly #slug = 'api/tasks';
-
 
   getTasks() {
     return this.#http.get<Task[]>(`${this.#slug}`);
@@ -32,7 +29,10 @@ export class TasksService {
   }
 
   updateTaskStatus(id: number, updateTaskStatus: UpdateTaskStatusDto) {
-    return this.#http.patch<Task>(`${this.#slug}/${id}/status`, updateTaskStatus);
+    return this.#http.patch<Task>(
+      `${this.#slug}/${id}/status`,
+      updateTaskStatus,
+    );
   }
 
   deleteTask(id: number) {

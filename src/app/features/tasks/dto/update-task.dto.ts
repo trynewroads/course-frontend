@@ -1,7 +1,5 @@
 import { FormType } from '@tnr/core/models/forms';
-import { Task } from '@tnr/features/tasks/models/task.model';
-
-export type UpdateTaskDto = Omit<Task, 'id' | 'status'>;
-
+import { CreateTaskDto } from '@tnr/features/tasks/dto/create-task.dto';
+export type UpdateTaskDto = CreateTaskDto;
 
 export type UpdateTaskForm = FormType<UpdateTaskDto>;

@@ -4,9 +4,9 @@
     <mat-icon fontIcon="close" />
   </button>
 </div>
-<h2 mat-dialog-title>Nueva Tarea</h2>
+<h2 mat-dialog-title>{{ title() }}</h2>
 <mat-dialog-content>
-  <section class="content" [formGroup]="createTaskForm">
+  <section class="content" [formGroup]="createUpdateTaskForm">
     <div class="form-field">
       <input
         formControlName="title"
@@ -30,9 +30,9 @@
   <button
     cdkFocusInitial
     matButton="filled"
-    [disabled]="!(createTaskForm.valid && createTaskForm.dirty)"
-    [mat-dialog-close]="createTaskForm.getRawValue()"
+    [disabled]="!(createUpdateTaskForm.valid && createUpdateTaskForm.dirty)"
+    [mat-dialog-close]="createUpdateTaskForm.getRawValue()"
   >
-    Crear Tarea
+    {{ buttonText() }}
   </button>
 </mat-dialog-actions>

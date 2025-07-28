@@ -3,7 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskCard } from '@tnr/features/tasks/components/task-card/task-card';
-import { CreateTask } from '@tnr/features/tasks/dialog/create-task/create-task';
+import { CreateUpdateTask } from '@tnr/features/tasks/dialog/create-update-task/create-update-task';
 import { Task } from '@tnr/features/tasks/models/task.model';
 import { TasksService } from '@tnr/features/tasks/services/tasks.service';
 import { derivedAsync } from 'ngxtension/derived-async';
@@ -31,7 +31,7 @@ export class Tasks {
 
   onCreate() {
     this.#dialog
-      .open(CreateTask)
+      .open(CreateUpdateTask)
       .afterClosed()
       .subscribe((task) => {
         if (task) {
@@ -42,7 +42,20 @@ export class Tasks {
       });
   }
 
-  onEdit(task: Task) {}
+  onEdit(task: Task) {
+    this.#dialog
+      .open(CreateUpdateTask, {
+        data: task,
+      })
+      .afterClosed()
+      .subscribe((taskUpdate) => {
+        if (taskUpdate) {
+          this.#tasksService.updateTask(task.id, taskUpdate).subscribe(() => {
+            this.updateTasksSignal.update((value) => value + 1);
+          });
+        }
+      });
+  }
 
   onDelete(task: Task) {
     this.#tasksService.deleteTask(task.id).subscribe(() => {
