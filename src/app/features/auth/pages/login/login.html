@@ -21,6 +21,8 @@
     </div>
   </form>
   <div class="card-button-actions">
-    <button class="primary-button">Entrar</button>
+    <button (click)="login()" matButton="filled" [disabled]="loginForm.invalid">
+      Entrar
+    </button>
   </div>
 </div>
