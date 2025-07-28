@@ -6,6 +6,7 @@ import { TaskCard } from '@tnr/features/tasks/components/task-card/task-card';
 import { CreateUpdateTask } from '@tnr/features/tasks/dialog/create-update-task/create-update-task';
 import { Task } from '@tnr/features/tasks/models/task.model';
 import { TasksService } from '@tnr/features/tasks/services/tasks.service';
+import { ConfirmDialog } from '@tnr/shared/components/confirm-dialog/confirm-dialog';
 import { derivedAsync } from 'ngxtension/derived-async';
 
 @Component({
@@ -58,8 +59,20 @@ export class Tasks {
   }
 
   onDelete(task: Task) {
-    this.#tasksService.deleteTask(task.id).subscribe(() => {
+    this.#dialog
+      .open(ConfirmDialog, {
+        data: {
+          title: 'Eliminar Tarea',
+          message: `¿Estás seguro de eliminar la tarea "${task.title}"?`,
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Eliminar',
+        },
+      })
+      .afterClosed()
+      .subscribe((confirm) => {});
+
+    /* this.#tasksService.deleteTask(task.id).subscribe(() => {
       this.updateTasksSignal.update((value) => value + 1);
-    });
+    }); */
   }
 }
