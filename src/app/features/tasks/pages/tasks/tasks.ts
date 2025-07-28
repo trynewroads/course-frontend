@@ -69,10 +69,12 @@ export class Tasks {
         },
       })
       .afterClosed()
-      .subscribe((confirm) => {});
-
-    /* this.#tasksService.deleteTask(task.id).subscribe(() => {
-      this.updateTasksSignal.update((value) => value + 1);
-    }); */
+      .subscribe((confirm) => {
+        if (confirm) {
+          this.#tasksService.deleteTask(task.id).subscribe(() => {
+            this.updateTasksSignal.update((value) => value + 1);
+          });
+        }
+      });
   }
 }
