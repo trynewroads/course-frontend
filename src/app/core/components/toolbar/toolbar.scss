@@ -1,5 +1,24 @@
-.toolbar {
+:host {
   height: 64px;
   width: 100%;
   background: rgba(45, 107, 250, 0.26);
+  display: flex;
+  justify-content: end;
+  padding-right: 60px;
+  color: white;
+}
+
+.user-profile {
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.icon {
+  color: white;
 }

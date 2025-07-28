@@ -7,17 +7,17 @@
     <div class="task-card-footer">
       <div>
         <mat-slide-toggle
-          (click)="changeStatus.emit(task)"
           [ngModel]="task.status"
+          (click)="changeStatus.emit(task)"
           >{{ task.status | trackStatus }}</mat-slide-toggle
         >
       </div>
       <div class="task-card-buttons">
         <button matMiniFab (click)="edit.emit(task)">
-          <mat-icon fontIcon="edit"></mat-icon>
+          <mat-icon fontIcon="edit" />
         </button>
         <button matMiniFab (click)="delete.emit(task)">
-          <mat-icon fontIcon="delete"></mat-icon>
+          <mat-icon fontIcon="delete" />
         </button>
       </div>
     </div>

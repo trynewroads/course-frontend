@@ -13,5 +13,7 @@
       (delete)="onDelete(task)"
       (edit)="onEdit(task)"
     />
+  } @empty {
+    <p class="no-task">No tienes tareas pendientes</p>
   }
 </section>

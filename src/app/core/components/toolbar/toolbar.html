@@ -1,1 +1,8 @@
-<section class="toolbar"></section>
+<div class="user-profile">
+  @if (me(); as me) {
+    <span>{{ me.username }}</span>
+  }
+  <button matIconButton (click)="onLogout()">
+    <mat-icon class="icon" fontIcon="logout" />
+  </button>
+</div>
