@@ -2,7 +2,7 @@
   <div class="tasks-list-header">
     <h1>Lista de Tareas</h1>
     <div>
-      <button matButton="filled">Crear Tarea</button>
+      <button matButton="filled" (click)="onCreate()">Crear Tarea</button>
     </div>
   </div>
 
@@ -10,8 +10,8 @@
     <app-task-card
       [task]="task"
       (changeStatus)="onChangeStatus(task)"
-      (edit)="onEdit(task)"
       (delete)="onDelete(task)"
-    ></app-task-card>
+      (edit)="onEdit(task)"
+    />
   }
 </section>

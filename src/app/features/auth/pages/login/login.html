@@ -3,25 +3,25 @@
   <form class="card-content" [formGroup]="loginForm">
     <div class="form-field">
       <input
-        placeholder="Usuario"
-        id="username"
-        type="text"
         formControlName="username"
+        id="username"
+        placeholder="Usuario"
         required
+        type="text"
       />
     </div>
     <div class="form-field">
       <input
-        placeholder="Contraseña"
-        id="password"
-        type="password"
         formControlName="password"
+        id="password"
+        placeholder="Contraseña"
         required
+        type="password"
       />
     </div>
   </form>
   <div class="card-button-actions">
-    <button (click)="login()" matButton="filled" [disabled]="loginForm.invalid">
+    <button matButton="filled" [disabled]="loginForm.invalid" (click)="login()">
       Entrar
     </button>
   </div>

@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  margin: 20px 24px 0;
+  justify-content: space-between;
+  align-items: start;
+}

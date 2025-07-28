@@ -1,0 +1,38 @@
+<div class="header">
+  <app-logo class="logo-container" [altLogo]="true" />
+  <button mat-dialog-close matIconButton>
+    <mat-icon fontIcon="close" />
+  </button>
+</div>
+<h2 mat-dialog-title>Nueva Tarea</h2>
+<mat-dialog-content>
+  <section class="content" [formGroup]="createTaskForm">
+    <div class="form-field">
+      <input
+        formControlName="title"
+        id="title"
+        placeholder="Título"
+        required
+        type="text"
+      />
+    </div>
+    <div class="form-field">
+      <textarea
+        formControlName="description"
+        id="description"
+        placeholder="Description"
+        required
+      ></textarea>
+    </div>
+  </section>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    cdkFocusInitial
+    matButton="filled"
+    [disabled]="!(createTaskForm.valid && createTaskForm.dirty)"
+    [mat-dialog-close]="createTaskForm.getRawValue()"
+  >
+    Crear Tarea
+  </button>
+</mat-dialog-actions>

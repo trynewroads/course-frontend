@@ -13,3 +13,28 @@ body {
   margin: 0;
   font-family: Inter, Roboto, "Helvetica Neue", sans-serif;
 }
+
+input,
+textarea {
+  display: flex;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--light-purple);
+  background: var(--very-light-purple);
+  height: 2.5rem;
+  padding: 0.75rem 0.5rem;
+}
+
+input,
+textarea,
+input::placeholder,
+textarea::placeholder {
+  color: var(--dark-purple);
+  font-size: 0.875rem;
+}
+
+textarea {
+  min-height: 8rem;
+  font-family: Inter;
+  field-sizing: content;
+}
