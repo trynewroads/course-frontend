@@ -40,7 +40,7 @@ export class AuthService {
         if (confirm) {
           this.#http
             .delete(`${this.#slug}/me`, {})
-            .subscribe(() => this.#router.navigate(['/']));
+            .subscribe(() => this.#router.navigate(['/auth/login']));
         }
       });
   }

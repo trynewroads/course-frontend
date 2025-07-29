@@ -1,8 +1,9 @@
-<div class="user-profile">
-  @if (me(); as me) {
+@if (me(); as me) {
+  <div class="user-profile">
     <span>{{ me.username }}</span>
-  }
-  <button matIconButton (click)="onLogout()">
-    <mat-icon class="icon" fontIcon="logout" />
-  </button>
-</div>
+
+    <button matIconButton (click)="onLogout()">
+      <mat-icon class="icon" fontIcon="logout" />
+    </button>
+  </div>
+}
