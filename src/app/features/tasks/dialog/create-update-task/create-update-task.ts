@@ -1,3 +1,4 @@
+import { TextFieldModule } from '@angular/cdk/text-field';
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,7 +9,9 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { Task } from '@tnr/features/tasks/models/task.model';
 import { createUpdateTaskToForm } from '@tnr/features/tasks/utils/task-forms';
 import { Logo } from '@tnr/shared/components/logo/logo';
@@ -24,6 +27,9 @@ import { Logo } from '@tnr/shared/components/logo/logo';
     MatDialogContent,
     Logo,
     MatIcon,
+    MatFormFieldModule,
+    MatInputModule,
+    TextFieldModule,
   ],
   templateUrl: './create-update-task.html',
   styleUrl: './create-update-task.scss',

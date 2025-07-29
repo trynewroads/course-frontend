@@ -7,23 +7,21 @@
 <h2 mat-dialog-title>{{ title() }}</h2>
 <mat-dialog-content>
   <section class="content" [formGroup]="createUpdateTaskForm">
-    <div class="form-field">
-      <input
-        formControlName="title"
-        id="title"
-        placeholder="Título"
-        required
-        type="text"
-      />
-    </div>
-    <div class="form-field">
+    <mat-form-field>
+      <mat-label>Título</mat-label>
+      <input formControlName="title" matInput required type="text" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Descripción</mat-label>
       <textarea
+        cdkAutosizeMaxRows="6"
+        cdkAutosizeMinRows="3"
+        cdkTextareaAutosize="true"
         formControlName="description"
-        id="description"
-        placeholder="Description"
+        matInput
         required
       ></textarea>
-    </div>
+    </mat-form-field>
   </section>
 </mat-dialog-content>
 <mat-dialog-actions>

@@ -1,24 +1,14 @@
 <div class="card">
   <div class="card-header">Login</div>
   <form class="card-content" [formGroup]="loginForm">
-    <div class="form-field">
-      <input
-        formControlName="username"
-        id="username"
-        placeholder="Usuario"
-        required
-        type="text"
-      />
-    </div>
-    <div class="form-field">
-      <input
-        formControlName="password"
-        id="password"
-        placeholder="Contraseña"
-        required
-        type="password"
-      />
-    </div>
+    <mat-form-field>
+      <mat-label>Usuario</mat-label>
+      <input formControlName="username" matInput required type="text" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Contraseña</mat-label>
+      <input formControlName="password" matInput required type="password" />
+    </mat-form-field>
   </form>
   <div class="card-button-actions">
     <button matButton="filled" [disabled]="loginForm.invalid" (click)="login()">
